@@ -52,9 +52,10 @@ public class DS_DoublyLinkedList {
 	public void append(Object value) {
 		Node_LList newNode = new Node_LList(value);
 		this.tail.setNext(newNode);
+		newNode.setPrev(this.tail);
 		this.tail = newNode;
 		this.length++;
-		this.tail.setPrev(traverseToIndex(this.length-1));
+//		this.tail.setPrev(traverseToIndex(this.length-1));
 		
 	}
 	

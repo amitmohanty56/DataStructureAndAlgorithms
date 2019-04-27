@@ -8,7 +8,7 @@ public class DS_LinkedList {
 	
 	private Node_LList head;
 	private Node_LList tail;
-	private int length = 1;
+	private int length = 0;
 	private Node_LList node;
 	
 	public DS_LinkedList() {
@@ -32,12 +32,21 @@ public class DS_LinkedList {
 		ll.insert(2, 500);
 		ll.insert(0, 700);
 		ll.insert(-1, 900);
-		ll.remove(2);
-		ll.remove(2);
-		ll.remove(3);
+//		ll.remove(2);
+//		ll.remove(2);
+//		ll.remove(3);
         List list = ll.printList();
         
         for(Object o : list) {
+        	
+        	System.out.println("The values are -> "+o);
+        }
+        
+        System.out.println("<--------Reverse--------> ");
+        
+        List revlist = ll.printReverseList2();
+        
+        for(Object o : revlist) {
         	
         	System.out.println("The values are -> "+o);
         }
@@ -89,6 +98,90 @@ public class DS_LinkedList {
 		}
 		
 		return list;
+	}
+	
+	//Start form 2nd element
+	public List printReverseList() {
+		
+		List list = new ArrayList();
+		if(this.head.getNext() == null) {
+	       list.add(this.head.getValue());
+	   	return printList();
+		}
+		
+		
+		
+		
+		Node_LList first = this.head;
+		this.tail = this.head;
+		Node_LList second = first.getNext();
+		
+		while(second != null) {
+			
+			Node_LList temp = second.getNext();
+			
+			second.setNext(first);
+			first = second;
+			second = temp;
+			
+			System.out.print("First -" + first.getValue());
+			System.out.print(" Second -"+second.getValue());
+			System.out.println(" Third -" +second.getNext().getValue());
+		}
+		this.head.setNext(null);
+		this.head = first;
+		
+		return printList();
+	}
+	
+	//Start form 1st node
+	public List printReverseList2() {
+		
+		if(this.head.getNext() == null) {
+			return this.printList();
+		}
+		
+		Node_LList current = this.head;
+		Node_LList tail = this.head;
+		Node_LList prev = null;
+		
+		while(current!= null) {
+			
+			Node_LList temp = current.getNext();
+			current.setNext(prev);			
+			prev = current;
+			current = temp;
+			
+			
+			
+		}
+		this.head.setNext(null);
+		this.head = prev;
+		
+		return printList();
+	}
+	
+	
+public Node_LList traverseToIndex(int index) {
+		
+		if(index > this.length) {
+			index = this.length;
+		}
+		
+		if(index < 0) {
+			index = 0;
+		}
+		
+		int counter = 0;
+		Node_LList currentNode = this.head;
+		while(counter != index) {
+
+			currentNode = currentNode.getNext();
+			counter++;
+		
+		}
+		
+		return currentNode;
 	}
 	
 	public void insert(int index, Object value) {
@@ -159,7 +252,12 @@ public class DS_LinkedList {
 	
 	public int size() {
 		
-		return this.length +1;
+		if(this.length ==0) {
+			return this.length+1;
+		}else {			
+			return this.length;
+		}
+		
 	}
 
 }
