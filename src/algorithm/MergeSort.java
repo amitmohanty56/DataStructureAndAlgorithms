@@ -13,7 +13,7 @@ package algorithm;
  * so if we sort based on the basis of key then as per original list it should be (2,5),(2,3) and here it preserve the relative order of key.
  * 4. Not In-place
  * here we divide the list in 2 new array.
- * 6. BIG O -> space complexity -> O(n)
+ * 6. BIG O -> space complexity -> O(n) as we divide into sub list.
  *          -> time complexity -> O(n log n).
  * */
 public class MergeSort {
@@ -29,23 +29,35 @@ public class MergeSort {
 
 	}
 	
+	/*when we have single element or less than 2 element then the method exit as it hit the base condition
+	 * and in this method we will divide the array into small group until we have 1 element in each sub array.
+	 * and we will do it with help of recursion.
+	 * */
 	public static void mergerSort(int [] inputArray) {
 		
 		int lengthOfInputArray = inputArray.length;
+		
+		//Base condition.
 		if(lengthOfInputArray < 2) {
 			return;
 		}
 		
+		//midpoint of array
 		int midPoint = lengthOfInputArray/2;
 		
+		//Divide to sub array as left and right array.
 		int [] left = new int[midPoint];
 		int [] right = new int[lengthOfInputArray - midPoint];
 		
+		//Populate the element into sub array.
 		for(int i = 0;i < midPoint;i++) {
 			left[i] = inputArray[i];
 		}
 		
 		for(int j = midPoint; j < lengthOfInputArray;j++) {
+			/*//as we need to start from 0 index that's why we subtract j-midpoint as j = midpoint in previous statement in for loop
+			 *  so j = 4 and midpoint = 4 so j -midpoint = 0 then j++ ,j(5) - midpoint(4) = 1 and then j++ so on. 
+			 * */			
 			right[j-midPoint] = inputArray[j]; 
 		}
 		
@@ -61,6 +73,8 @@ public class MergeSort {
 		
 	}
 	
+	/*This method will merge the left array and the right array after comparing elements from both the array
+     and put the smallest element into the original array as we are sorting ascending order.*/
 	public static void merge(int [] left,int [] right,int [] inputArray) {
 		
 		int length_leftArray = left.length;
@@ -68,6 +82,9 @@ public class MergeSort {
 		
 		int i = 0,j = 0,k =0;
 		
+        /*Loop through the left array and loop through the right array and compare the elements from both the array
+         * and put the smallest element into the original array as we are sorting ascending order.
+         * */
 		while(i < length_leftArray && j < length_rightArray) {
 			
 			if(left[i] <= right[j]) {
@@ -80,6 +97,9 @@ public class MergeSort {
 			k++;
 		}
 		
+		/*This part need as either left array or right array will exhaust first.so to put the remaining elements to the
+		original array we need to loop over the remaining array and put back to original array.
+		for above ex the left array will exhaust first so the to loop over the remain elements in right array we have loop individually on array.*/
 		while(i < length_leftArray) {
 			inputArray[k] = left[i];
 			i++;
