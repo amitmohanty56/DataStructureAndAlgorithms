@@ -13,7 +13,7 @@ package algorithm;
  * so if we sort based on the basis of key then as per original list it should be (2,5),(2,3) and here it preserve the relative order of key.
  * 4. Not In-place
  * here we divide the list in 2 new array.
- * 6. BIG O -> space complexity -> O(n) as we divide into sub list.
+ * 6. BIG O -> space complexity -> O(n) as we divide into sub list. This is expensive if we have memory constraint.
  *          -> time complexity -> O(n log n).
  * */
 public class MergeSort {

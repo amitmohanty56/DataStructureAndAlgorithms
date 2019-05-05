@@ -2,7 +2,8 @@ package algorithm;
 
 import java.util.Arrays;
 
-/*In Selection sort we take the current element as the smallest and compare with rest of the elements 
+/*Most likely not use in real time as it use for teaching/academics only.
+ * In Selection sort we take the current element as the smallest and compare with rest of the elements 
  * and where ever we found the smallest element store the index value and then swap the smallest element
  * with first index then second index and then keep going like this until we have list completely sorted.
  * Time complexity -> BIG O -> O(n^2) as we involve 2 for loop.

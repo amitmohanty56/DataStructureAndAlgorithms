@@ -1,0 +1,17 @@
+//#1 - Sort 10 schools around your house by distance:  Insertion as number of input is small so we need something simple.
+
+//#2 - eBay sorts listings by the current Bid amount: radix or counting sort. As these are numbers with fixed range 
+
+//#3 - Sport scores on ESPN: Quick Sorted. because better space complexity.
+
+//#4 - Massive database (can't fit all into memory) needs to sort through past year's user data : Merge Sort. as we will use external space and performance matters.
+
+//#5 - Almost sorted Udemy review data needs to update and add 2 new reviews: Insertion sort
+
+//#6 - Temperature Records for the past 50 years in Canada: Quick Sort.we can do in memory space.
+
+//#7 - Large user name database needs to be sorted. Data is very random. Quick Sort
+
+//#8 - You want to teach sorting for the first time: bubble and selection sort.
+
+* Radix and counting sorting only work with integer and with a fixed range.

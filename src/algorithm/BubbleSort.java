@@ -2,7 +2,8 @@ package algorithm;
 
 public class BubbleSort {
 	
-	/*In BubbleSort we are bubbling or bouncing the biggest number to the end of array
+	/*Most likely not use in real time as it use for teaching/academics only.
+	 * In BubbleSort we are bubbling or bouncing the biggest number to the end of array
 	 * by comparing with next number in the array. 
 	 * To do so we use 2 for loop, the outer for loop is helping us to loop from first every time, in inner loop
 	 * and by comparing if we found the big number we will swap the number.

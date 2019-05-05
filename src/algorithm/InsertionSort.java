@@ -15,7 +15,8 @@ public class InsertionSort {
 
 	}
 	
-	/*This sorting mechanism is inPlace sorting.
+	/*This sorting is helpful when we have few data and mostly sorted data.
+	 * This sorting mechanism is inPlace sorting.
 	 * So we choose to start from 1st index or can say 2nd elements as if it has only 1 element then its sorted
 	 * We will check the current element against the previous element and if the previous element is greater than current element
 	 * then the previous element moved one position to right  and this process will go on until all the bigger element moved to one step to right.
