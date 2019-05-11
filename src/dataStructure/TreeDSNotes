@@ -1,0 +1,152 @@
+Tree DataStructure is a recursive data structure.
+
+Ex:              9
+ *          4         20        
+ *      4   1   6    15  170
+ *         9 10       11
+
+Tree DS has 
+1. root node
+2.parent
+3. Child
+4.leaf node -> Do not have children
+5.siblings
+7.grandparent
+8.grand children
+9.ancestor
+10.descender. 
+
+If Tree has N nodes then it has n-1 edges as exclude root.
+
+Depth and Height of nodes in Tree
+Depth of x/node = length of path from root to x/node 
+or No of edges in path from root to x. The edges are the incoming link between nodes.
+Root has depth 0.
+
+                 9             -> depth 0
+               /    \ -> edges
+ *            4       20       -> depth of 4,20 is 1 
+ *         /  |  \   /  \
+          4   1   6  15  170   -> depth of 4,1,6,15,170 is 2
+             / \     |
+ *           9 10    11        -> depth of 9,10,11 is 3
+ 
+ 
+Height of x =
+No of edges  in longest path from x/node to a leaf
+
+Height of leaf nodes is 0.
+ 
+Height of Tree is height of root node.
+so in below ex the height of Tree is 3.
+ 
+                  9             -> Height of root node(9) is  3
+               /    \ -> edges
+ *            4       20       -> Height of 20 is 2 
+ *         /  |  \   /  \
+          4   1   6  15  170   -> depth 2
+             / \     |
+ *           9 10    11        -> depth 3
+ 
+ Height and Depth are 2 different properties and may not be same.
+ 
+ Types of Tree:
+ 1. Binary Tree
+ A tree in which each node can have at most 2 children.
+ 
+ 
+ 
+ Application of Tree in Computer Science:
+ 1. Storing naturally hierarchical data
+ ex: File system in computer
+ 
+ 2. Organize data For Quick search,insertion,deletion
+  ex: Binary Search Tree
+  
+ 3. Trie is used store dictionary.
+ It is used for dynamic spell checking.
+ 
+ 4. Network Routing algorithm.
+ 
+ Binary Tree : Each node can have at most 2 children if have 1 child is still called Binary Tree
+ * 
+ * Strict/Proper binary Tree
+ * If each node can have either 2 or 0 children.
+ * 
+ *                9             -> Level 0
+               /    \ -> edges
+ *            4       20       -> level 1 
+ *         /  |  \   /  \
+          4   1   6  15  170   -> level 2
+             / \     |
+ *           9 10    11        -> level 3
+ * 
+ * Complete Binary Tree
+ * All levels except possibly the last are completely filled and all nodes are as left as possible.
+ * 
+ * Maximum No of nodes at level i = 2^i.
+ * ex: at level 0 its 2^0 = 1
+ * at level 1 its 2^1 = 2
+ * at level 2 its 2^2 = 4.
+ * 
+ * Complete binary Tree example
+ * *              9             -> Level 0
+               /    \ -> edges
+ *            4       20       -> level 1 
+ *          /  \     /  \
+           4    1   15  170    -> level 2
+         / \          
+ *       9 10                  -> level 3
+ * 
+ * 
+ * Perfect Binary Tree
+ * If all the level are completely filled then they are called perfect binary tree.
+ *               9             -> Level 0
+               /    \ -> edges
+ *            4       20       -> level 1 
+ *          /  \     /  \
+           4    1   15  170    -> level 2
+         / \   / \  / \   /\ 
+ *       9 10  2  6 4  0  5 9   -> level 3
+ * 
+ * 
+ * Maximum no of node in a binary tree with height h 
+ * is 
+ * (2 ^ (no of levels))-1 / (2^(h+1)) -1. h -> height
+ * so as of previous ex the max number of nodes  will be (2 ^ 4)-1 = 16 -1 = 15.
+ * 
+ * Height of a perfect binary tree with n nodes.
+ * 
+ * n = (2^(h+1)) -1
+ * 2^(h+1) = (n+1)
+ * h = log2(n+1) -1
+ * so previously we get n =  15 
+ * h = log2(15+1) -1
+ * h = log2(16) -1
+ * h = 4 -1 
+ * h = 3
+ * 
+ * 
+ * Balanced binary Tree:
+ * if the difference between height of left and right sub tree for every node is not more than k(mostly 1) 
+ * 
+ * Height of empty tree is -1.
+ * Height of tree with 1 node = 0;   
+ * 
+ * We can implement binary tree using:
+ * 1. dynamically created nodes.
+ * 2. Array [] but we can use only for complete binary tree
+ * In this case in array each index will store the node value and it will be from left to right.
+ * [9,4,20,4,1,15,170]
+ * 
+ * 	              9             -> Level 0
+               /    \ -> edges
+ *            4       20       -> level 1 
+ *          /  \     /  \
+           4    1   15  170    -> level 2
+   
+   [9,4,20,4,1,15,170]
+   
+   for node at index i in a complete binary tree
+   left child - index = 2i+1
+   right child -index = 2i+2

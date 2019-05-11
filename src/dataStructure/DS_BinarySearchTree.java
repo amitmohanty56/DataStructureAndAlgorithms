@@ -1,10 +1,40 @@
 package dataStructure;
 
+
+/*Binary Search Tree(BST)
+ * Its a binary tree in which for each node, value of all the left nodes in left subtree is lesser or equal than roots
+ * and value of all the nodes in right subtree is greater than roots
+ *  
+ *          Correct binary search tree
+ * ex:            15
+ *              /    \
+ *             10     20
+ *            /  \   /  \
+ *           8   12 17  25
+ *           
+ *       Wrong binary search tree    
+ *                15
+ *              /    \
+ *             10     20
+ *            /  \   /  \
+ *           8   16 17  25
+ *           
+ *
+ *How Binary search works?
+ *So first we will get the middle point of the array/list
+ *Then compare the given element against the middle point
+ *if (input < middle element) -> discard the all elements to the right of the middle point and look for in left of the middle element.
+ *if (input > middle element) -> discard the all elements to the left of the middle point and look for in right of the middle element.
+ *Then again get the middle element in the respective half and compare again and try to find the match.
+ *
+ *In Binary element we look for the n element in search space and then we compare against middle element and if don't find we reduced to n/2.
+ *n -> n/2 -> n/4 ->...either we find the element or get the 1 element/node in search space.
+ *
+ *During insertion or deletion a binary search tree may imbalance as we create node and link to other node so we need to balance the BST.
+ * */
 public class DS_BinarySearchTree {
 	
 	private Node_BST root;
-	private Node_BST leftNode;
-	private Node_BST rightNode;
 	private Node_BST currentNode;
 	
 
@@ -34,7 +64,7 @@ public class DS_BinarySearchTree {
 		tree.insert(170);
 		tree.insert(15);
 		
-		Integer result = tree.lookUp(4);
+		Integer result = tree.lookUp(170);
 		
 		System.out.println(result);
 		
@@ -90,7 +120,7 @@ public class DS_BinarySearchTree {
 //			}
 		}
 	}
-	
+	//For search operation BIG O -> time complexity O(log (n))
 	public Integer lookUp(Integer input) {
 		
 		if(this.root == null) {

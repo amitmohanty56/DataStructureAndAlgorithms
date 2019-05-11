@@ -1,3 +1,13 @@
+Factors to Choose a DataStructure:
+1. What kind of data needs to be stored?
+2. Cost of Operation 
+ex: minimize the cost of frequent operation. 
+if we use list data structure then we will make it sort so that we can apply binary search operation.which will reduce the cost of operation.
+3. Memory Usage
+4. Ease of Implementation.
+
+
+
 //#1 - Sort 10 schools around your house by distance:  Insertion as number of input is small so we need something simple.
 
 //#2 - eBay sorts listings by the current Bid amount: radix or counting sort. As these are numbers with fixed range 
@@ -15,3 +25,8 @@
 //#8 - You want to teach sorting for the first time: bubble and selection sort.
 
 * Radix and counting sorting only work with integer and with a fixed range.
+
+* Why we don't put complex data in the list?
+We get O(log N) while searching.
+*Why we don't put complex data HashTables?
+HashTables aren't ordered.
